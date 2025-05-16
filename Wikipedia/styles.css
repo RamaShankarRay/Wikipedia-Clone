@@ -1,0 +1,341 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(40, 1fr);
+    min-height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+/* Header Sections */
+.first-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    grid-column: 1/span 40;
+    grid-row: auto;
+    padding: 0.5em 2em;
+    border-bottom: 1px solid #eaecf0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.second-header {
+    position: sticky;
+    top: 60px;
+    z-index: 99;
+    background-color: white;
+    grid-column: 1/span 40;
+    grid-row: auto;
+    padding: 0.5em 2em;
+    border-bottom: 1px solid #a2a9b1;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Main Content Area */
+.main {
+    grid-column: 2/span 30;
+    grid-row: auto;
+    padding: 1em 2em;
+    background-color: white;
+    min-height: calc(100vh - 200px);
+}
+
+/* Aside (Appearance Section) */
+.aside {
+    grid-column: 32/span 8;
+    padding: 1em;
+    position: sticky;
+    top: 200px;
+    height: fit-content;
+    background-color: white;
+    border-left: 1px solid #eaecf0;
+}
+
+/* Footer */
+.footer {
+    grid-column: 1/span 40;
+    padding: 1em 2em;
+    background-color: #f8f9fa;
+    border-top: 1px solid #a2a9b1;
+    margin-top: auto;
+}
+
+/* Navigation Elements */
+.main-navigation img {
+    width: 1.8em;
+    cursor: pointer;
+}
+
+.logo img {
+    width: 12em;
+    height: auto;
+}
+
+/* Search Bar */
+.search {
+    flex: 1;
+    max-width: 28em;
+    display: flex;
+    align-items: center;
+    border: 1px solid #a2a9b1;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.search img {
+    width: 1.2em;
+    margin: 0.5em;
+}
+
+.search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+
+.search button {
+    width: 20%;
+    height: 2.995em;
+    padding: 0em 1em;
+    border: none;
+    border-left: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #d3d9de;
+}
+
+/* Header Actions */
+.donate, .create-account, .log-in {
+    position: relative;
+    color: #36c;
+    margin: 0 0.5em;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+
+.donate{
+    left: 5em;
+}
+.create-account{
+    left: 1.5em;
+}
+
+.log-in{
+    right: 2em;
+}
+
+.contributors{
+    position: relative;
+    right: 4em;
+}
+
+/* Aside Styles */
+.aside p {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.aside button {
+    padding: 0.2em 0.5em;
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.aside .line {
+    height: 1px;
+    background-color: #a2a9b1;
+    margin: 0.5em 0;
+    opacity: 0.5;
+}
+
+.aside ul {
+    margin: 1em 1.5em;
+}
+
+.aside li {
+    margin: 0.5em 0;
+}
+
+/* Cards Layout */
+#pets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+    margin-top: 2em;
+}
+
+.card {
+    border: 1px solid #a2a9b1;
+    border-radius: 8px;
+    padding: 1em;
+    background-color: white;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+
+.footer{
+    margin-right: 15em;
+    padding: 1.5em;
+    padding-bottom: 5em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .main {
+        grid-column: 1/-1;
+        padding: 1em;
+    }
+
+    .aside {
+        display: none;
+        visibility: collapse;
+    }
+
+    .first-header {
+        padding: 0.5em 1em;
+    }
+
+    .second-header {
+        padding: 0.5em 1em;
+        flex-wrap: wrap;
+    }
+
+    .search {
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .logo img {
+        width: 8em;
+    }
+
+    .footer{
+        margin-right: 0.1em;
+        padding: 1.5em;
+        padding-bottom: 5em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .first-header {
+        justify-content: space-between;
+    }
+
+    .search {
+        order: 3;
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .contributors,
+    .donate,
+    .create-account {
+        display: none;
+    }
+
+    .talk,.read,.view-source,.history{
+        display: none;
+    }
+
+    .tools{
+        position: relative;
+        left: 12.5em;
+    }
+
+
+    .second-header {
+        gap: 0.5em;
+        font-size: 0.9em;
+    }
+
+    #pets {
+        grid-template-columns: 1fr;
+    }
+
+    .footer{
+        margin-right: 0.1em;
+        padding: 1.5em;
+        padding-bottom: 5em;
+    }
+    
+}
+
+.contributors img{
+    width: 40px;
+}
+
+.aside ul li{
+    display: block;
+}
+
+.aside label{
+    position: relative;
+    left: 1em;
+}
+.aside{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+.aside p{
+    display: inline-block;
+    font-size: 1em;
+}
+
+.aside span{
+    color: grey;
+}
+
+.aside button:hover{
+    background-color: #a2a9b1;
+}
+
+.links li{
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    padding-left: 0.6em;
+}
+
+.links a{
+    text-decoration: none;
+}
+
+.footer ul{
+    padding-top: 2em;
+}
